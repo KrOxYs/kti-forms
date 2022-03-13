@@ -37,11 +37,9 @@
     </div>
     <div v-show="yes">
       <!-- skills -->
-      <label for="skils">E-COMMERCE Kesukaan (</label>
-      <label for="skils"
-        ><strong><p>ditambah (.) diakhir nya)</p></strong></label
-      >
-      <input type="text" name="kesukaan" id="skils" v-model="tempSkills" @keyup="addSkills" />
+      <label for="skils">E-COMMERCE Kesukaan</label>
+      <input type="text" name="suka" id="skils" v-model="tempSkills" />
+      <label for="skils" v-show="showMoment">(wait for a moment)</label>
     </div>
     <div v-show="showAlasan">
       <label for="alasan">Apa Alasan Anda Belum Berbelanja Di E-commerce</label>
@@ -54,39 +52,42 @@
       </select>
     </div>
 
-    <div v-for="ecom in skills" :key="ecom" class="pill" v-show="yes">
+    <!-- <div v-for="ecom in skills" :key="ecom" class="pill" v-show="yes">
       <span @click="deleteSkills(ecom)"><input type="hidden" name="suka" id="suka" :value="ecom" />{{ ecom }}</span>
-    </div>
+    </div> -->
 
     <!-- submit -->
     <div class="submitt">
       <button type="submit" :disabled="disable" class="btn" @click="handleSubmit">Submit</button>
     </div>
   </form>
+  <!-- <Loading v-if="showLoading" /> -->
 </template>
 
 <script>
 import Alert from './Alert.vue';
-
+import Loading from './Loading.vue';
 export default {
   components: {
     Alert,
+    Loading,
   },
   data() {
     return {
       name: '',
       email: '',
       role: 'X MIPA I',
-      yes: false,
       tempSkills: '',
       skills: [],
+      alasan2: 'Ya',
+      alasan: '',
+      yes: false,
       showModal: false,
       disable: true,
       required: true,
       options: false,
       showAlasan: true,
-      alasan2: 'Ya',
-      alasan: '',
+      showMoment: false,
     };
   },
   methods: {
@@ -114,14 +115,17 @@ export default {
     handleSubmit() {
       const scriptURL = 'https://script.google.com/macros/s/AKfycbxhJLx1X-CTLc2hn1sD6Q9Sru_mz4z57LIkSWduEM2HZ9ndSJ0wNEKbs6YMVDIlDYmOGg/exec';
       const form = document.forms['submit-to-google-sheet'];
-
-      form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        fetch(scriptURL, { method: 'POST', body: new FormData(form) })
-          .then((response) => console.log('Success!', response))
-          .catch((error) => console.error('Error!', error.message));
-      });
-      setTimeout(() => ((this.showModal = true), (this.name = ''), (this.email = ''), (this.skills = []), (this.yes = false), (this.alasan = ''), (this.alasan2 = '')), 4000);
+      form.addEventListener(
+        'submit',
+        (e) => {
+          e.preventDefault();
+          fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+            .then((response) => console.log('Success!', response))
+            .catch((error) => console.error('Error!', error.message));
+        },
+        (this.showMoment = true)
+      );
+      setTimeout(() => ((this.showModal = true), (this.name = ''), (this.email = ''), (this.skills = []), (this.yes = false), (this.alasan = ''), (this.alasan2 = ''), (this.showAlasan = true), (this.showMoment = false)), 5000);
     },
     showFeature() {
       this.showAlasan = false;
@@ -174,9 +178,9 @@ select {
   border: none;
   border-radius: 10px;
   background: rgb(74, 42, 219);
-  border-bottom: 1px solid rgba(29, 28, 28, 0.877);
+  border-bottom: 1px solid rgba(29, 28, 28, 0.774);
 
-  color: rgb(255, 255, 255);
+  color: rgb(24, 23, 23);
 }
 input[type='checkbox'] {
   display: inline-block;
