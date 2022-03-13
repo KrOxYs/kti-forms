@@ -1,7 +1,7 @@
 <template>
   <!-- <ToggleSwitch /> -->
   <div class="opening">
-    <h1>Pemanfaat E-commerce untuk mempermudah ativitas siswa man 18 jakarta</h1>
+    <h1>PEMANFAATSN E-COMMERCE UNTUK MEMPERMUDAH AKTIVITAS SISWA MAN 18 JAKARTA</h1>
   </div>
   <SignUpForm />
 </template>
