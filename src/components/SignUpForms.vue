@@ -128,7 +128,7 @@ export default {
       setTimeout(() => ((this.showModal = true), (this.name = ''), (this.email = ''), (this.skills = []), (this.yes = false), (this.alasan = ''), (this.alasan2 = ''), (this.showAlasan = true), (this.showMoment = false)), 5000);
     },
     showFeature() {
-      this.showAlasan = false;
+      this.showAlasan = !this.showAlasan;
     },
   },
   updated() {
