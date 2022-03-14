@@ -5,6 +5,7 @@
     <dialog>
       <p>{{ btnText }}</p>
 
+      <p>~KuRo</p>
       <label for="toggle" @click="ClickCLose"> {{ closeName }} </label>
     </dialog>
   </div>
