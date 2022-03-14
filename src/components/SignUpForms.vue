@@ -61,7 +61,7 @@
       <button type="submit" :disabled="disable" class="btn" @click="handleSubmit">Submit</button>
     </div>
   </form>
-  <!-- <Loading v-if="showLoading" /> -->
+  <Loading v-if="showLoading" />
 </template>
 
 <script>
@@ -88,6 +88,7 @@ export default {
       options: false,
       showAlasan: true,
       showMoment: false,
+      showLoading: false,
     };
   },
   methods: {
@@ -123,12 +124,15 @@ export default {
             .then((response) => console.log('Success!', response))
             .catch((error) => console.error('Error!', error.message));
         },
-        (this.showMoment = true)
+        ((this.showMoment = true), (this.showLoading = true))
       );
-      setTimeout(() => ((this.showModal = true), (this.name = ''), (this.email = ''), (this.skills = []), (this.yes = false), (this.alasan = ''), (this.alasan2 = ''), (this.showAlasan = true), (this.showMoment = false)), 5000);
+      setTimeout(
+        () => ((this.showModal = true), (this.name = ''), (this.email = ''), (this.skills = []), (this.yes = false), (this.alasan = ''), (this.alasan2 = ''), (this.showAlasan = true), (this.showMoment = false), (this.showLoading = false)),
+        5000
+      );
     },
     showFeature() {
-      this.showAlasan = false;
+      this.showAlasan = !this.showAlasan;
     },
   },
   updated() {
