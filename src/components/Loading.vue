@@ -1,11 +1,9 @@
 <template>
-  <div class="bg">
-    <div class="lds-ellipsis">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
+  <div class="lds-ellipsis">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
   </div>
 </template>
 
@@ -14,16 +12,12 @@ export default {};
 </script>
 
 <style>
-.bg {
-  position: relative;
-  margin-bottom: 50px;
-  top: -23px;
-  right: 12px;
-}
 .lds-ellipsis {
   display: inline-block;
   position: relative;
   width: 50px;
+  margin-top: -60px;
+  margin-right: 20px;
   height: 50px;
 }
 .lds-ellipsis div {
