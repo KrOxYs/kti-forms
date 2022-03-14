@@ -1,5 +1,5 @@
 <template>
-  <Alert btnText="Terima Kasih Sudah Mengisi Form Ini ;)" closeName="Close" v-if="showModal" />
+  <Alert :btnText="'Terima Kasih ' + name + ' sudah mengisi form ini '" closeName="Close" v-if="showModal" @click="deleteFormsInput" />
   <form name="submit-to-google-sheet">
     <label for="name">Nama : </label>
     <!-- menggunakan v-model untuk mengsingkronisasikan dengan property yang di inginkan  -->
@@ -126,13 +126,13 @@ export default {
         },
         ((this.showMoment = true), (this.showLoading = true))
       );
-      setTimeout(
-        () => ((this.showModal = true), (this.name = ''), (this.email = ''), (this.skills = []), (this.yes = false), (this.alasan = ''), (this.alasan2 = ''), (this.showAlasan = true), (this.showMoment = false), (this.showLoading = false)),
-        5000
-      );
+      setTimeout(() => ((this.showModal = true), (this.email = ''), (this.skills = []), (this.yes = false), (this.alasan = ''), (this.alasan2 = ''), (this.showAlasan = true), (this.showMoment = false), (this.showLoading = false)), 5000);
     },
     showFeature() {
       this.showAlasan = !this.showAlasan;
+    },
+    deleteFormsInput() {
+      this.name = '';
     },
   },
   updated() {
