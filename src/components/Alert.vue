@@ -43,16 +43,15 @@ body {
   height: 100vh;
   margin: 0;
   padding: 0;
-  width: 100%;
 }
 .modal {
-  width: 100%;
   background-color: rgba(0, 0, 0, 0.5);
+  width: 500px;
 }
 label {
   background: skyblue;
   color: white;
-  padding: 0.5em 1em;
+  padding: 0.3em 1em;
   border-radius: 4px;
 }
 @keyframes appear {
@@ -64,7 +63,7 @@ label {
 
 dialog {
   animation: appear 350ms ease-in 1;
-  max-width: 500px;
+  max-width: 300px;
   display: block;
 }
 </style>
