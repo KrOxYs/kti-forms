@@ -186,9 +186,9 @@ form {
   text-align: left;
   padding: 40px;
   border-radius: 10px;
-  /* box-shadow: 1px 2px 95px 1px rgba(0, 0, 0, 0.7);
+  box-shadow: 1px 2px 95px 1px rgba(0, 0, 0, 0.7);
   -webkit-box-shadow: 1px 2px 95px 1px rgba(0, 0, 0, 0.7);
-  -moz-box-shadow: 1px 2px 95px 1px rgba(0, 0, 0, 0.7); */
+  -moz-box-shadow: 1px 2px 95px 1px rgba(0, 0, 0, 0.7);
 }
 .btn:disabled {
   background: #d0e2fd;
