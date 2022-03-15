@@ -220,7 +220,7 @@ button {
   border: none;
   padding: 10px 20px;
   margin-top: 20px;
-  color: rgb(161, 41, 190);
+  color: rgb(255, 255, 255);
   border-radius: 20px;
 }
 .submitt {
