@@ -40,8 +40,12 @@
     </div>
     <div v-show="yes">
       <!-- skills -->
-      <label for="skils">E-COMMERCE Kesukaan</label>
+      <label for="skils">E-COMMERCE Yang Dipakai</label>
       <input type="text" name="suka" id="skils" v-model="tempSkills" />
+      <label for="pemakaian">Berapa Kali Memakai Ecommers Dalam seminggu</label>
+      <input type="text" name="pemakaian" id="pemakaian" v-model="pemakaian" />
+      <label for="kegunaan">Apa Yang Biasa Dilakukan Dalam Memakai E-commerce?</label>
+      <input type="text" name="kegunaan" id="kegunaan" v-model="kegunaan" />
       <label for="skils" v-show="showMoment">(wait for a moment)</label>
     </div>
     <div v-show="showAlasan">
@@ -84,6 +88,8 @@ export default {
       skills: [],
       alasan2: 'Ya',
       alasan: '',
+      kegunaan: '',
+      pemakaian: '',
       yes: false,
       showModal: false,
       disable: true,
@@ -129,7 +135,22 @@ export default {
         },
         ((this.showMoment = true), (this.showLoading = true))
       );
-      setTimeout(() => ((this.showModal = true), (this.email = ''), (this.skills = []), (this.yes = false), (this.alasan = ''), (this.alasan2 = ''), (this.showAlasan = true), (this.showMoment = false), (this.showLoading = false)), 5000);
+      setTimeout(
+        () => (
+          (this.showModal = true),
+          (this.email = ''),
+          (this.skills = []),
+          (this.yes = false),
+          (this.alasan = ''),
+          (this.alasan2 = ''),
+          (this.showAlasan = true),
+          (this.showMoment = false),
+          (this.showLoading = false),
+          (this.pemakaian = ''),
+          (this.kegunaan = '')
+        ),
+        5000
+      );
     },
     showFeature() {
       this.showAlasan = !this.showAlasan;
@@ -165,9 +186,9 @@ form {
   text-align: left;
   padding: 40px;
   border-radius: 10px;
-  box-shadow: 1px 2px 95px 1px rgba(0, 0, 0, 0.7);
+  /* box-shadow: 1px 2px 95px 1px rgba(0, 0, 0, 0.7);
   -webkit-box-shadow: 1px 2px 95px 1px rgba(0, 0, 0, 0.7);
-  -moz-box-shadow: 1px 2px 95px 1px rgba(0, 0, 0, 0.7);
+  -moz-box-shadow: 1px 2px 95px 1px rgba(0, 0, 0, 0.7); */
 }
 .btn:disabled {
   background: #d0e2fd;
