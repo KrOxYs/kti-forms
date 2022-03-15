@@ -24,10 +24,16 @@
       <option value="X IPS III">X IPS III</option>
       <option value="XI IPA I">XI IPA I</option>
       <option value="XI IPA II">XI IPA II</option>
+      <option value="XI IPA III">XI IPA III</option>
+      <option value="XI IPS I">XI IPS I</option>
+      <option value="XI IPS III">XI IPS III</option>
+      <option value="XI IPS III">XI IPS III</option>
       <option value="XII IPA I">XII IPA I</option>
       <option value="XII IPA II">XII IPA II</option>
+      <option value="XII IPA III">XII IPA III</option>
       <option value="XII IPS I">XII IPS I</option>
       <option value="XII IPS II">XII IPS II</option>
+      <option value="XII IPA III">XII IPA III</option>
     </select>
 
     <!-- yes -->
