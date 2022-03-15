@@ -1,15 +1,35 @@
 <template>
   <label class="switch">
-    <input type="checkbox" />
+    <input type="checkbox" v-model="changeTheme" />
     <span class="slider round"></span>
   </label>
+  <p>{{ changeTheme }}</p>
+  <!-- <input type="checkbox" id="time" />
+  <label for="time">Night</label> -->
 </template>
 
 <script>
-export default {};
+import { reactive } from '@vue/reactivity';
+export default {
+  data() {
+    return {
+      changeTheme: false,
+    };
+  },
+  setup() {
+    if (changeTheme == true) {
+      const styleObj = reactive({
+        backgroundColor: 'black',
+      });
+    }
+  },
+};
 </script>
 
 <style>
+body {
+  background-color: black;
+}
 .switch {
   position: relative;
   display: inline-block;
@@ -32,7 +52,7 @@ export default {};
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgb(240, 161, 72);
+  background-color: orange;
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
@@ -44,17 +64,17 @@ export default {};
   width: 26px;
   left: 4px;
   bottom: 4px;
-  background-color: rgb(255, 255, 255);
+  background-color: white;
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
 
 input:checked + .slider {
-  background-color: #000000;
+  background-color: black;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196f3;
+  box-shadow: 0 0 1px black;
 }
 
 input:checked + .slider:before {

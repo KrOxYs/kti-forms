@@ -2,7 +2,9 @@
   <!-- <ToggleSwitch /> -->
   <div class="opening">
     <h1>PEMANFAATAN E-COMMERCE UNTUK MEMPERMUDAH AKTIVITAS SISWA MAN 18 JAKARTA</h1>
+    <!-- <ToggleSwitch /> -->
   </div>
+
   <SignUpForm />
 </template>
 
@@ -24,15 +26,20 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #ffffff;
   margin-top: 60px;
 }
 body {
   margin: auto;
-  background: rgb(0, 255, 179);
+  background: #12c2e9; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #f64f59, #c471ed, #12c2e9); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 .opening {
   max-width: 400px;
   margin: auto;
+}
+.opening h1 {
+  text-shadow: 2.5px 2.5px black;
 }
 </style>

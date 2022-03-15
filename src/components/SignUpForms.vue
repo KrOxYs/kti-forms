@@ -1,5 +1,5 @@
 <template>
-  <Alert :btnText="'Terima Kasih ' + name + ' sudah mengisi form ini '" closeName="Close" v-if="showModal" @click="deleteFormsInput" />
+  <Alert :btnText="'Terima Kasih ' + name + ' sudah mengisi form ini '" v-if="showModal" closeName="Close" @click="deleteFormsInput" />
   <form name="submit-to-google-sheet">
     <label for="name">Nama : </label>
     <!-- menggunakan v-model untuk mengsingkronisasikan dengan property yang di inginkan  -->
@@ -21,9 +21,12 @@
       <option value="X MIPA II">X MIPA II</option>
       <option value="X IPS I">X IPS I</option>
       <option value="X IPS II">X IPS II</option>
-      <option value="X IPS III">X IPS III</option>
+      <option value="X AGAMA">X AGAMA</option>
       <option value="XI IPA I">XI IPA I</option>
       <option value="XI IPA II">XI IPA II</option>
+      <option value="XI IPS I">XI IPS I</option>
+      <option value="XI IPS II">XI IPS II</option>
+      <option value="XI IPS III">XI IPS III</option>
       <option value="XII IPA I">XII IPA I</option>
       <option value="XII IPA II">XII IPA II</option>
       <option value="XII IPS I">XII IPS I</option>
@@ -37,8 +40,12 @@
     </div>
     <div v-show="yes">
       <!-- skills -->
-      <label for="skils">E-COMMERCE Kesukaan</label>
+      <label for="skils">E-COMMERCE Yang Dipakai</label>
       <input type="text" name="suka" id="skils" v-model="tempSkills" />
+      <label for="pemakaian">Berapa Kali Memakai Ecommers Dalam seminggu</label>
+      <input type="text" name="pemakaian" id="pemakaian" v-model="pemakaian" />
+      <label for="kegunaan">Apa Yang Biasa Dilakukan Dalam Memakai E-commerce?</label>
+      <input type="text" name="kegunaan" id="kegunaan" v-model="kegunaan" />
       <label for="skils" v-show="showMoment">(wait for a moment)</label>
     </div>
     <div v-show="showAlasan">
@@ -81,6 +88,8 @@ export default {
       skills: [],
       alasan2: 'Ya',
       alasan: '',
+      kegunaan: '',
+      pemakaian: '',
       yes: false,
       showModal: false,
       disable: true,
@@ -126,7 +135,22 @@ export default {
         },
         ((this.showMoment = true), (this.showLoading = true))
       );
-      setTimeout(() => ((this.showModal = true), (this.email = ''), (this.skills = []), (this.yes = false), (this.alasan = ''), (this.alasan2 = ''), (this.showAlasan = true), (this.showMoment = false), (this.showLoading = false)), 5000);
+      setTimeout(
+        () => (
+          (this.showModal = true),
+          (this.email = ''),
+          (this.skills = []),
+          (this.yes = false),
+          (this.alasan = ''),
+          (this.alasan2 = ''),
+          (this.showAlasan = true),
+          (this.showMoment = false),
+          (this.showLoading = false),
+          (this.pemakaian = ''),
+          (this.kegunaan = '')
+        ),
+        5000
+      );
     },
     showFeature() {
       this.showAlasan = !this.showAlasan;
@@ -155,10 +179,16 @@ export default {
 form {
   max-width: 360px;
   margin: 30px auto;
-  background-color: rgb(74, 42, 219);
+  background: #ff512f; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #dd2476, #ff512f); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #dd2476, #ff512f); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
   text-align: left;
   padding: 40px;
   border-radius: 10px;
+  /* box-shadow: 1px 2px 95px 1px rgba(0, 0, 0, 0.7);
+  -webkit-box-shadow: 1px 2px 95px 1px rgba(0, 0, 0, 0.7);
+  -moz-box-shadow: 1px 2px 95px 1px rgba(0, 0, 0, 0.7); */
 }
 .btn:disabled {
   background: #d0e2fd;
@@ -172,6 +202,7 @@ label {
   letter-spacing: 1px;
   font-weight: bold;
 }
+
 input,
 select {
   display: block;
@@ -180,11 +211,11 @@ select {
   display: block;
   box-sizing: border-box;
   border: none;
-  border-radius: 10px;
-  background: rgb(74, 42, 219);
-  border-bottom: 1px solid rgba(29, 28, 28, 0.774);
+  border-radius: 20px;
+  background: rgba(0, 0, 0, 0.459);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.397);
 
-  color: rgb(24, 23, 23);
+  color: rgb(255, 255, 255);
 }
 input[type='checkbox'] {
   display: inline-block;
@@ -197,7 +228,7 @@ input[type='checkbox'] {
   display: inline-block;
   margin: 20px 10px 0 0;
   padding: 6px 12px;
-  background-color: #eee;
+  background-color: rgb(238, 238, 238);
   border-radius: 20px;
   font-size: 12px;
   letter-spacing: 1px;
@@ -210,7 +241,7 @@ button {
   border: none;
   padding: 10px 20px;
   margin-top: 20px;
-  color: white;
+  color: rgb(255, 255, 255);
   border-radius: 20px;
 }
 .submitt {

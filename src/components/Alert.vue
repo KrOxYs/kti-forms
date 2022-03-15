@@ -46,11 +46,12 @@ body {
 }
 .modal {
   background-color: rgba(0, 0, 0, 0.5);
+  width: 500px;
 }
 label {
   background: skyblue;
   color: white;
-  padding: 0.5em 1em;
+  padding: 0.3em 1em;
   border-radius: 4px;
 }
 @keyframes appear {
